@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Average&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Georama:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes progressAnimation {
+  0% {
+    stroke-dashoffset: 141;
+  }
+  100% {
+    stroke-dashoffset: calc(141 - (141 * var(--percentage)) / 100);
+  }
+}
+
+.animate-progress {
+  animation: progressAnimation 2s ease-out forwards;
+  --percentage: var(--income-percentage);
+}
+
+/* Dynamically set percentage value for each arc */
+.income {
+  --income-percentage: 70; /* Example: Income percentage */
+}
+
+
+.react-calendar {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 70vh;
+  min-height: 600px !important;
+  background: white;
+  border: 2px solid #3d3d3d;
+  border-radius: 10px;
+  font-family: inherit;
+  line-height: 1.5;
+  padding: 1rem;
+  padding-bottom: 2rem !important;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 2rem; 
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  font-size: 2rem; /* ⬆ Increase arrow size */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Grid layout for days */
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+/* Day tiles */
+.react-calendar__tile {
+  padding: 1rem !important;
+  font-size: 1.2rem; /* ⬆ Day number font size */
+  height: 100px !important;
+  display: flex;
+  justify-content: center;      /* Center horizontally */
+  align-items: center;          /* Center vertically */
+  position: relative;
+  flex-direction: column;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+
+.react-calendar__tile abbr {
+  /* font-weight: bold; */
+  color: #1f2937; 
+  font-size: 1.1rem;
+}
+
+
+/* Highlight today */
+.react-calendar__tile--now {
+  background: #e6f7ff !important;
+  font-weight: bold !important;
+}
+
+/* Highlight selected day */
+.react-calendar__tile--active {
+  background: #bae6fd !important;
+  color: black !important;
+  font-weight: bold !important;
+}
+
+/* Remove default focus outline */
+.react-calendar__tile:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Day of week headers (Mon, Tue, etc.) */
+.react-calendar__month-view__weekdays {
+  font-size: 1rem !important; /* ⬆ Weekday label size */
+  font-weight: 500;
+  text-align: center;
+}
