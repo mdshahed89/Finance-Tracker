@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiCalendar2Line } from "react-icons/ri";
-import { BarChart } from "recharts";
+import { BarChart, PieLabelRenderProps, TooltipProps } from "recharts";
 import {
   PieChart,
   Pie,
@@ -51,12 +51,11 @@ export const IncomeExpensePieChart = ({
     innerRadius,
     outerRadius,
     percent,
-    index,
-  }: any) => {
+  }: PieLabelRenderProps) => {
     const RADIAN = Math.PI / 180;
-    const radius = innerRadius + (outerRadius - innerRadius) / 2;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const radius = Number(innerRadius) + (Number(outerRadius) - Number(innerRadius)) / 2;
+    const x = Number(cx) + Number(radius) * Math.cos(-Number(midAngle) * Number(RADIAN));
+    const y = Number(cy) + Number(radius) * Math.sin(-Number(midAngle) * Number(RADIAN));
 
     return (
       <text
@@ -69,7 +68,7 @@ export const IncomeExpensePieChart = ({
         pointerEvents="none"
         fontWeight="500"
       >
-        {`${(percent * 100).toFixed(0)}%`}
+        {`${((percent ?? 0) * 100).toFixed(0)}%`}
       </text>
     );
   };
@@ -100,7 +99,7 @@ export const IncomeExpensePieChart = ({
   );
 };
 
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-[#37375C] text-white p-2 rounded shadow-lg text-xs">
@@ -210,7 +209,7 @@ const data = [
   { date: "Dec", balance: 20500 },
 ];
 
-const CustomBalanceTooltip = ({ active, payload, label }: any) => {
+const CustomBalanceTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-[#37375C] py-2 rounded shadow w-[6rem] ">
@@ -368,10 +367,18 @@ export const IncomeAndExpenseChart = () => {
   );
 };
 
-const IncomeAndExpenseTooltip = ({ active, payload }: any) => {
+interface CustomPayload {
+  dataKey: string;
+  value?: number;
+  payload?: {
+    month?: string;
+  };
+}
+
+const IncomeAndExpenseTooltip = ({ active, payload }: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
-    const income = payload.find((p: any) => p.dataKey === "income");
-    const expense = payload.find((p: any) => p.dataKey === "expense");
+    const income = payload.find((p) => p.dataKey === "income") as CustomPayload;
+    const expense = payload.find((p) => p.dataKey === "expense") as CustomPayload;
     const month = payload[0]?.payload?.month;
 
     return (
@@ -389,7 +396,7 @@ const IncomeAndExpenseTooltip = ({ active, payload }: any) => {
         {expense && (
           <p className=" px-2 ">
             Expense:{" "}
-            <span className="text-[#F99C30]  ">${Math.abs(expense.value)}</span>
+            <span className="text-[#F99C30]  ">${Math.abs(expense.value ?? 0)}</span>
           </p>
         )}
       </div>
@@ -421,7 +428,7 @@ export const TransactionPagination = () => {
           PREV
         </div>
         <div className="flex justify-center items-center gap-2 ">
-          {[...Array(page).keys()].map((item, ind) => (
+          {[...Array(page).keys()].map((item) => (
             <div
               key={item}
               onClick={() => {
