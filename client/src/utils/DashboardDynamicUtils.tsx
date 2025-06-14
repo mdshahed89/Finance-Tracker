@@ -112,7 +112,8 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export const ProgressBar = ({ amount }: { amount: number }) => {
-  const [progressNumber, setProgressNumber] = useState(100);
+  // const [progressNumber, setProgressNumber] = useState(100);
+  const progressNumber = 100;
   const [animatedPercent, setAnimatedPercent] = useState(0);
 
   const finalPercent = (progressNumber / amount) * 100;
@@ -153,7 +154,8 @@ export const ProgressBar = ({ amount }: { amount: number }) => {
 };
 
 export const BudgetBar = ({ amount }: { amount: number }) => {
-  const [progressNumber, setProgressNumber] = useState(100);
+  // const [progressNumber, setProgressNumber] = useState(100);
+  const progressNumber = 100;
   const [animatedPercent, setAnimatedPercent] = useState(0);
 
   const finalPercent = (progressNumber / amount) * 100;
@@ -228,7 +230,7 @@ export const BalanceChart = () => {
   return (
     <div className=" pt-[2rem] ">
       <h3 className="mb-[2rem] font-medium ">Balance</h3>
-      <div className="w-full h-[25rem] pb-[2rem] pr-[1.5rem] border-b ">
+      <div className="w-full h-[25rem] pb-[2rem] lg:pr-[1.5rem] border-b ">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ right: 8 }}>
             {" "}
@@ -272,7 +274,21 @@ export const BalanceChart = () => {
   );
 };
 
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+
+  useEffect(() => {
+    const updateSize = () => setSize([window.innerWidth, window.innerHeight]);
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  return size;
+}
+
 export const IncomeAndExpenseChart = () => {
+  const [width] = useWindowSize();
   const data = [
     { month: "Jan", income: 2500, expense: 1500 },
     { month: "Feb", income: 2200, expense: 1400 },
@@ -288,8 +304,15 @@ export const IncomeAndExpenseChart = () => {
     { month: "Dec", income: 2000, expense: 1000 },
   ];
 
+  const getBarSize = () => {
+    if (width < 480) return 4;
+    if (width < 768) return 6;
+    if (width < 1024) return 8;
+    return 10;
+  };
+
   return (
-    <div className=" pb-[2rem] pl-[2rem] border-b ">
+    <div className=" pb-[2rem] lg:pl-[2rem] border-b ">
       <div className=" flex items-center justify-between mb-[2rem] ">
         <h3 className=" font-medium ">Income & Expense</h3>
         <div className=" flex items-center gap-1 bg-[#5A6ACF]/10 px-3 py-1 rounded-md cursor-pointer ">
@@ -331,13 +354,13 @@ export const IncomeAndExpenseChart = () => {
             dataKey="income"
             fill="#5A6ACF"
             radius={[6, 6, 0, 0]}
-            barSize={10}
+            barSize={getBarSize()}
           />
           <Bar
             dataKey="expense"
             fill="#F99C30"
             radius={[6, 6, 0, 0]}
-            barSize={10}
+            barSize={getBarSize()}
           />
         </BarChart>
       </ResponsiveContainer>

@@ -1,63 +1,60 @@
 import { TransactionPagination } from "@/utils/DashboardDynamicUtils";
-import Link from "next/link";
 import React from "react";
-import { CiEdit } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoArrowDown, IoArrowUpOutline } from "react-icons/io5";
-import { MdDeleteOutline } from "react-icons/md";
 import { RiCalendar2Line } from "react-icons/ri";
 import { TbArrowsTransferUpDown } from "react-icons/tb";
 import Category1 from "@/assets/Category1.png";
 import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
-import { BsThreeDots, BsThreeDotsVertical } from "react-icons/bs";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 const page = () => {
 
-  const data = [
-    {
-      from: "Bank Account",
-      date: "29/04/2025",
-      title: "Financial Income",
-      amount: "120.00",
-      type: "INCOME",
-    },
-    {
-      from: "Credit Card",
-      date: "25/04/2025",
-      title: "Entertainment",
-      amount: "50.00",
-      type: "EXPENSE",
-    },
-    {
-      from: "Bank Account",
-      date: "29/04/2025",
-      title: "Financial Income",
-      amount: "120.00",
-      type: "INCOME",
-    },
-    {
-      from: "Credit Card",
-      date: "25/04/2025",
-      title: "Entertainment",
-      amount: "50.00",
-      type: "EXPENSE",
-    },
-    {
-      from: "Bank Account",
-      date: "29/04/2025",
-      title: "Financial Income",
-      amount: "120.00",
-      type: "INCOME",
-    },
-    {
-      from: "Credit Card",
-      date: "25/04/2025",
-      title: "Entertainment",
-      amount: "50.00",
-      type: "EXPENSE",
-    },
-  ];
+  // const data = [
+  //   {
+  //     from: "Bank Account",
+  //     date: "29/04/2025",
+  //     title: "Financial Income",
+  //     amount: "120.00",
+  //     type: "INCOME",
+  //   },
+  //   {
+  //     from: "Credit Card",
+  //     date: "25/04/2025",
+  //     title: "Entertainment",
+  //     amount: "50.00",
+  //     type: "EXPENSE",
+  //   },
+  //   {
+  //     from: "Bank Account",
+  //     date: "29/04/2025",
+  //     title: "Financial Income",
+  //     amount: "120.00",
+  //     type: "INCOME",
+  //   },
+  //   {
+  //     from: "Credit Card",
+  //     date: "25/04/2025",
+  //     title: "Entertainment",
+  //     amount: "50.00",
+  //     type: "EXPENSE",
+  //   },
+  //   {
+  //     from: "Bank Account",
+  //     date: "29/04/2025",
+  //     title: "Financial Income",
+  //     amount: "120.00",
+  //     type: "INCOME",
+  //   },
+  //   {
+  //     from: "Credit Card",
+  //     date: "25/04/2025",
+  //     title: "Entertainment",
+  //     amount: "50.00",
+  //     type: "EXPENSE",
+  //   },
+  // ];
 
   return (
     <div className=" ">

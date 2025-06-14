@@ -4,10 +4,8 @@ import { IncomeExpensePieChart } from "@/utils/DashboardDynamicUtils";
 import React, { useId, useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { GrTransaction } from "react-icons/gr";
-import { IoEyeOutline } from "react-icons/io5";
 import { MdAccountBalance } from "react-icons/md";
 import { TbDotsVertical } from "react-icons/tb";
-import { TfiCreditCard } from "react-icons/tfi";
 
 const Page = () => {
   const accounts = [

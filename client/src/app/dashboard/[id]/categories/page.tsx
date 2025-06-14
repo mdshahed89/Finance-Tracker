@@ -15,6 +15,7 @@ type Category = {
 };
 
 export default function FinanceCategories() {
+  
   const [activeTab, setActiveTab] = useState<CategoryType>("both");
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
@@ -151,11 +152,11 @@ export default function FinanceCategories() {
                   <span>{category.name}</span>
                 </div>
                 <div className="flex items-center">
-                  {
-                    expandedCategory !== category.name && <span className="text-xs bg-white shadow-inner px-2 py-1 rounded-full mr-2">
-                    {category.subcategories.length}
-                  </span>
-                  }
+                  {expandedCategory !== category.name && (
+                    <span className="text-xs bg-white shadow-inner px-2 py-1 rounded-full mr-2">
+                      {category.subcategories.length}
+                    </span>
+                  )}
                   {expandedCategory === category.name && (
                     <div className="ml-auto text-[1.3rem] transition-all duration-300 ease-in-out hover:bg-gray-200 p-2 rounded-full ">
                       <TbDotsVertical />
@@ -179,7 +180,6 @@ export default function FinanceCategories() {
                       d="M19 9l-7 7-7-7"
                     />
                   </svg>
-                  
                 </div>
               </button>
 

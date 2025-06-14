@@ -1,12 +1,10 @@
 import {
   BalanceChart,
   BudgetBar,
-  // Cashflow,
   IncomeAndExpenseChart,
   IncomeExpensePieChart,
   ProgressBar,
 } from "@/utils/DashboardDynamicUtils";
-import { DashboardFooter } from "@/utils/DashboardUtils";
 import React from "react";
 import { BsFuelPumpDieselFill } from "react-icons/bs";
 import { FaFilm } from "react-icons/fa";
@@ -22,8 +20,8 @@ const page = () => {
     <div>
       <h3 className=" text-[1.5rem] mb-[2rem] ">Dashboard</h3>
       <Summary />
-      <div className=" mt-10 flex ">
-        <div className=" flex-1 border-r ">
+      <div className=" mt-10 flex lg:flex-row flex-col ">
+        <div className=" flex-1 lg:border-r ">
           <Accounts />
           <BalanceChart />
           <Transactions />
@@ -57,7 +55,7 @@ const Cashflow = () => {
   );
 
   return (
-    <div className="pl-[2rem] py-[2rem] border-b">
+    <div className=" lg:pl-[2rem] py-[2rem] lg:border-b">
       <div className="flex items-center justify-between mb-[1.5rem]">
         <h3 className=" font-medium ">Cash Flow</h3>
         <div className="flex items-center gap-1 bg-[#5A6ACF]/10 px-3 py-1 rounded-md cursor-pointer">
@@ -123,7 +121,7 @@ const Cashflow = () => {
 
 const Summary = () => {
   return (
-    <div className=" grid grid-cols-3 gap-4 ">
+    <div className=" grid grid-cols-1 lg:grid-cols-3 gap-4 ">
       <div className=" relative rounded-md px-5 pt-7 pb-5 bg-[#5A6ACF] ">
         <div className=" w-full space-y-1 ">
           <h4 className=" text-[#e9e9e9] font-medium ">Total Balance</h4>
@@ -223,7 +221,7 @@ const Summary = () => {
 
 const Accounts = () => {
   return (
-    <div className=" flex-1 border-b pr-[2rem] pb-[2rem] ">
+    <div className=" flex-1 border-b lg:pr-[2rem] pb-[2rem] ">
       <h3 className=" mb-[2rem] font-medium ">Accounts</h3>
       <div className=" ">
         <div className=" flex items-center justify-between border-b pb-[.8rem] mb-[.8rem] ">
@@ -262,7 +260,7 @@ const Accounts = () => {
 
 const Budgets = () => {
   return (
-    <div className=" flex-1 border-b pl-[2rem] py-[2rem] ">
+    <div className=" flex-1 border-b lg:pl-[2rem] py-[2rem] ">
       <div className=" flex items-center justify-between mb-[2rem] ">
         <h3 className=" font-medium ">Budgets</h3>
         <div className=" flex items-center gap-1 bg-[#5A6ACF]/10 px-3 py-1 rounded-md cursor-pointer ">
@@ -380,7 +378,7 @@ const Transactions = () => {
   ];
 
   return (
-    <div className=" flex-1 border-b pr-[2rem] pt-[2rem] ">
+    <div className=" flex-1 border-b lg:pr-[2rem] pt-[2rem] ">
       <div className=" flex items-center justify-between mb-[2rem] ">
         <h3 className=" font-medium ">Transactions</h3>
         <div className=" flex items-center gap-1 bg-[#5A6ACF]/10 px-3 py-1 rounded-md cursor-pointer ">

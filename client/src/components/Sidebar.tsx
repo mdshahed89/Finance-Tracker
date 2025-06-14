@@ -1,62 +1,71 @@
 "use client";
 
 import React, { ReactNode, useState } from "react";
-import Logo from "@/assets/Logo.png";
-import Image from "next/image";
-import { IoTennisballOutline } from "react-icons/io5";
 import Link from "next/link";
-import { FaMountain } from "react-icons/fa";
+import {
+  FaBalanceScale,
+  FaCalendarAlt,
+  FaChartPie,
+  FaExchangeAlt,
+  FaHome,
+  FaMountain,
+  FaTags,
+  FaUniversity,
+  FaWallet,
+} from "react-icons/fa";
 import { FaBasketball } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import { IoIosArrowForward } from "react-icons/io";
+import { BsLayoutSidebar } from "react-icons/bs";
 
 interface SidebarProps {
   id: string;
-  isOpenSidebar: boolean
+  isOpenSidebar: boolean;
+  setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Sidebar = ({ id, isOpenSidebar  }: SidebarProps) => {
+const Sidebar = ({ id, isOpenSidebar, setIsOpenSidebar }: SidebarProps) => {
   const currentPath = usePathname();
 
   const items1 = [
     {
       name: "Overview",
-      icon: <FaBasketball />,
+      icon: <FaHome />,
       path: `/dashboard/${id}`,
     },
     {
       name: "Transactions",
-      icon: <FaBasketball />,
+      icon: <FaExchangeAlt />,
       path: `/dashboard/${id}/transactions`,
     },
     {
       name: "Accounts",
-      icon: <FaBasketball />,
+      icon: <FaUniversity />,
       path: `/dashboard/${id}/accounts`,
     },
     {
       name: "Budgets",
-      icon: <FaBasketball />,
+      icon: <FaWallet />,
       path: `/dashboard/${id}/budgets`,
     },
     {
       name: "Debts & Credits",
-      icon: <FaBasketball />,
+      icon: <FaBalanceScale />,
       path: `/dashboard/${id}/debts-credits`,
     },
     {
       name: "Calendar",
-      icon: <FaBasketball />,
+      icon: <FaCalendarAlt />,
       path: `/dashboard/${id}/calendar`,
     },
     {
       name: "Charts",
-      icon: <FaBasketball />,
-      path: `/dashboard/${id}/chats`,
+      icon: <FaChartPie />,
+      path: `#`,
     },
     {
       name: "Categories",
-      icon: <FaBasketball />,
+      icon: <FaTags />,
       path: `/dashboard/${id}/categories`,
     },
   ];
@@ -92,13 +101,29 @@ const Sidebar = ({ id, isOpenSidebar  }: SidebarProps) => {
   ];
 
   return (
-    <div className={` ${isOpenSidebar ? "w-[0px]" : "w-[300px]"} fixed top-0 left-0 z-[60] bg-[#F1F2F7]  h-[100vh] flex flex-col justify-between pb-[2rem] transition-all duration-300 overflow-hidden `}>
+    <div
+      className={` ${
+        isOpenSidebar ? "w-[0px]" : "w-[300px]"
+      } fixed top-0 left-0 z-[60] bg-[#F1F2F7]  h-[100vh] flex flex-col justify-between pb-[2rem] transition-all duration-300 overflow-hidden `}
+    >
       <div>
-        <div className=" h-[70px] w-full border-b border-[#d6d8dd] flex items-center font-poppins px-8 gap-2 ">
-          <div className=" p-2 rounded-full text-[#fff] bg-[#5A6ACF] mt-1 ">
-            <FaMountain />
+        <div className=" h-[70px] w-full border-b border-[#d6d8dd] px-4 lg:px-8 gap-2 flex items-center justify-between ">
+          <div className=" flex items-center gap-2 font-poppins ">
+            <div className=" p-2 rounded-full text-[#fff] bg-[#5A6ACF] mt-1 ">
+              <FaMountain />
+            </div>
+            <span className=" text-[1.5rem] font-medium ">Fintrack</span>
           </div>
-          <span className=" text-[1.5rem] font-medium ">Fintrack</span>
+          <div
+            onClick={() => setIsOpenSidebar(!isOpenSidebar)}
+            className=" text-[1.3rem] cursor-pointer lg:hidden flex "
+          >
+            <BsLayoutSidebar
+              className={` ${
+                isOpenSidebar ? "rotate-180" : "rotate-0"
+              } transition-all duration-300 ease-in-out `}
+            />
+          </div>
         </div>
         <div className=" px-4 pt-8 space-y-3 ">
           <div className=" text-[#082431]/50 px-4 ">Menu</div>

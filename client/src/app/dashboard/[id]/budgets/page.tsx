@@ -7,7 +7,6 @@ import { BsFuelPumpDieselFill } from "react-icons/bs";
 import { FaFilm, FaRegEye } from "react-icons/fa";
 import { GiEating } from "react-icons/gi";
 import { PiDotsThreeOutlineFill } from "react-icons/pi";
-import { TbDotsVertical } from "react-icons/tb";
 
 const page = () => {
   const budgets = [
