@@ -60,7 +60,7 @@ const page = () => {
     <div>
       <h3 className=" text-[1.5rem] mb-[2rem] ">Debts & Credits</h3>
       <Summary />
-      <div className=" flex mt-[5rem] pb-[2rem] ">
+      <div className=" flex mt-[5rem] pb-[2rem] md:flex-row flex-col md:gap-0 gap-8 ">
         <Debits items={items} />
         <Credits items={items} />
       </div>
@@ -72,7 +72,7 @@ export default page;
 
 const Summary = () => {
   return (
-    <div className=" grid grid-cols-2 gap-4 ">
+    <div className=" grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-4 ">
       <div className=" relative rounded-md px-5 pt-7 pb-5 bg-[#5A6ACF] ">
         <div className=" w-full space-y-1 ">
           <h4 className=" text-[#e9e9e9] font-medium ">Total Balance</h4>
@@ -183,7 +183,7 @@ type ItemProps = {
 };
 const Debits = ({ items }: ItemProps) => {
   return (
-    <div className=" flex-1 pr-[2rem] border-r ">
+    <div className=" flex-1 md:pr-[2rem] md:border-r ">
       <div className=" flex items-center justify-between mb-[2rem] ">
         <h3 className=" font-medium text-[#5A6ACF] ">Debits</h3>
       </div>
@@ -247,7 +247,7 @@ const Debits = ({ items }: ItemProps) => {
 
 const Credits = ({ items }: ItemProps) => {
   return (
-    <div className=" flex-1 pl-[2rem] ">
+    <div className=" flex-1 md:pl-[2rem] ">
       <div className=" flex items-center justify-between mb-[2rem] ">
         <h3 className=" font-medium text-[#5A6ACF] ">Credits</h3>
       </div>

@@ -190,7 +190,7 @@ const ToggleButton = ({ type }) => {
 
 const Summary = () => {
   return (
-    <div className=" grid grid-cols-2 gap-4 ">
+    <div className=" grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-4 ">
       <div className=" relative rounded-md px-5 pt-7 pb-5 bg-[#5A6ACF] ">
         <div className=" w-full space-y-1 ">
           <h4 className=" text-[#e9e9e9] font-medium ">Total Balance</h4>

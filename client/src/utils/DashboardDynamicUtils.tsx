@@ -53,9 +53,14 @@ export const IncomeExpensePieChart = ({
     percent,
   }: PieLabelRenderProps) => {
     const RADIAN = Math.PI / 180;
-    const radius = Number(innerRadius) + (Number(outerRadius) - Number(innerRadius)) / 2;
-    const x = Number(cx) + Number(radius) * Math.cos(-Number(midAngle) * Number(RADIAN));
-    const y = Number(cy) + Number(radius) * Math.sin(-Number(midAngle) * Number(RADIAN));
+    const radius =
+      Number(innerRadius) + (Number(outerRadius) - Number(innerRadius)) / 2;
+    const x =
+      Number(cx) +
+      Number(radius) * Math.cos(-Number(midAngle) * Number(RADIAN));
+    const y =
+      Number(cy) +
+      Number(radius) * Math.sin(-Number(midAngle) * Number(RADIAN));
 
     return (
       <text
@@ -209,7 +214,11 @@ const data = [
   { date: "Dec", balance: 20500 },
 ];
 
-const CustomBalanceTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
+const CustomBalanceTooltip = ({
+  active,
+  payload,
+  label,
+}: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-[#37375C] py-2 rounded shadow w-[6rem] ">
@@ -375,10 +384,15 @@ interface CustomPayload {
   };
 }
 
-const IncomeAndExpenseTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+const IncomeAndExpenseTooltip = ({
+  active,
+  payload,
+}: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
     const income = payload.find((p) => p.dataKey === "income") as CustomPayload;
-    const expense = payload.find((p) => p.dataKey === "expense") as CustomPayload;
+    const expense = payload.find(
+      (p) => p.dataKey === "expense"
+    ) as CustomPayload;
     const month = payload[0]?.payload?.month;
 
     return (
@@ -396,7 +410,9 @@ const IncomeAndExpenseTooltip = ({ active, payload }: TooltipProps<number, strin
         {expense && (
           <p className=" px-2 ">
             Expense:{" "}
-            <span className="text-[#F99C30]  ">${Math.abs(expense.value ?? 0)}</span>
+            <span className="text-[#F99C30]  ">
+              ${Math.abs(expense.value ?? 0)}
+            </span>
           </p>
         )}
       </div>
@@ -415,9 +431,9 @@ export const TransactionPagination = () => {
     setPageNumber(num);
   };
   return (
-    <div className=" pt-[2rem] flex items-center justify-between ">
-      <p>Showing 1 to 10 of 50 entries</p>
-      <div className="flex justify-center items-center gap-5 p-2 rounded-md w-fit select-none">
+    <div className=" pt-[2rem] flex sm:items-center justify-between sm:flex-row flex-col gap-3 ">
+      <p className=" text-left ">Showing 1 to 10 of 50 entries</p>
+      <div className="flex justify-end sm:justify-center items-center gap-5 p-2 rounded-md sm:w-fit w-full select-none">
         {/* left arrow */}
         <div
           onClick={() => {

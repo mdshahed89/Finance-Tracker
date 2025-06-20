@@ -82,8 +82,8 @@ export default function FinanceCategories() {
     <div className=" min-h-[80vh] max-w-[60rem] ">
       <div className=" flex items-center justify-between mb-[3rem] ">
         <h3 className="text-[1.5rem] ">Calendar</h3>
-        <button className="mt-4 py-2 bg-[#2FBFDE] text-[#fff] font-medium px-5 rounded-lg hover:bg-blue-100 flex items-center justify-center gap-1 ">
-          <LuPlus className=" text-[1.3rem] " />
+        <button className=" py-2 bg-[#2FBFDE] text-[#fff] font-medium px-5 rounded-lg hover:bg-[#38c2e0] flex items-center justify-center gap-1 ">
+          <LuPlus className=" text-[1.1rem] md:text-[1.3rem] " />
           Add New Category
         </button>
       </div>

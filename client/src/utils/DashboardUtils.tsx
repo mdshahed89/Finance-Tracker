@@ -51,7 +51,7 @@ export const AddIncomeOrExpense = () => {
           >
             <div
               onClick={(e_) => e_.stopPropagation()}
-              className={`absolute z-[100] rounded-lg drop-shadow-2xl bg-white min-h-[40rem] p-[1.5rem] max-w-[40rem] w-full ${
+              className={`absolute z-[100] rounded-lg drop-shadow-2xl bg-white min-h-[40rem] p-[.7rem] lg:p-[1.5rem] max-w-[40rem] w-full ${
                 openModal
                   ? "opacity-1 translate-y-0 duration-300"
                   : "-translate-y-20 opacity-0 duration-150"
@@ -237,7 +237,7 @@ const CategoryAndAmount = ({type}:{type: string | null}) => {
       <div className=" mt-16 space-y-12 ">
         {rows.map((row, index) => (
           <div key={index} className="flex items-center gap-2 ">
-            <div className={` ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
+            <div className={` md:flex hidden ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
               <FaMoneyBillWave />
             </div>
             <div className="flex items-center gap-3 w-full">
@@ -372,7 +372,7 @@ const Accounts = ({type}:{type: string | null}) => {
   return (
     <div>
       <div className="flex items-end space-x-2 max-w-[25rem] ">
-        <div className={` ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
+        <div className={` md:flex hidden ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
           <FaMoneyBillWave />
         </div>
         <div className=" relative w-full " ref={accountRef}>
@@ -434,7 +434,7 @@ const DateTimePicker = ({type}:{type: string | null}) => {
 
   return (
     <div className="flex items-end space-x-2 ">
-      <div className={` ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
+      <div className={` md:flex hidden ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
         <FaMoneyBillWave />
       </div>
       <div className="max-w-[30rem] w-full mt-6 space-y-2 ">
@@ -459,7 +459,7 @@ const OtherDetails = ({type}:{type: string | null}) => {
   return(
     <div className=" mt-[1.5rem] max-w-[25rem] space-y-6 ">
       <div className=" w-full flex items-end space-x-2 ">
-      <div className={` ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
+      <div className={` md:flex hidden ${type === "income" ? "bg-[#5A6ACF]/5" : "bg-[#F99C30]/5"} p-3 text-[1.6rem] rounded-full w-fit`}>
         <FaMoneyBillWave />
       </div>
       <div className=" space-y-2 w-full ">
@@ -468,7 +468,7 @@ const OtherDetails = ({type}:{type: string | null}) => {
       </div>
     </div>
       <div className=" w-full flex items-end space-x-2 ">
-      <div className="p-3 text-[1.6rem] rounded-full bg-gray-100 w-fit h-fit ">
+      <div className=" md:flex hidden p-3 text-[1.6rem] rounded-full bg-gray-100 w-fit h-fit ">
         <FaMoneyBillWave />
       </div>
       <div className=" space-y-2 w-full ">

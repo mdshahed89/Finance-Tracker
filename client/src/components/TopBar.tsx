@@ -16,8 +16,8 @@ const TopBar = ({ isOpenSidebar, setIsOpenSidebar }: TopbarProps) => {
   return (
     <div
       className={` ${
-        isOpenSidebar ? "pl-4 lg:pl-[40px]" : "lg:pl-[340px]"
-      } fixed top-0 left-0 z-50 bg-[#fff] h-[70px] pr-4 lg:pr-10 flex items-center justify-between border-b  w-full transition-all duration-300 ease-in-out `}
+        isOpenSidebar ? "pl-4 xl:pl-[40px]" : "lg:pl-[340px]"
+      } fixed top-0 left-0 z-50 bg-[#fff] h-[70px] pr-5 xl:pr-10 flex items-center justify-between border-b  w-full transition-all duration-300 ease-in-out `}
     >
       <div className=" w-[60%] relative flex items-center gap-6  ">
         <div
@@ -34,7 +34,7 @@ const TopBar = ({ isOpenSidebar, setIsOpenSidebar }: TopbarProps) => {
           type="text"
           name=""
           id=""
-          placeholder="Search"
+          placeholder="Search..."
           className=" w-full outline-none border-none py-2 pl-4 pr-[3rem] bg-[#F6F6FB] rounded-md "
         />
         <div className=" absolute top-0 right-0 px-4 h-full flex items-center  ">

@@ -14,7 +14,14 @@ export default function DashboardLayout({
   params: Promise<{ id: string }>;
 }) {
   const [id, setId] = useState<string | null>(null);
-  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
+  const [isOpenSidebar, setIsOpenSidebar] = useState(() => {
+  // Default to false if mobile view (0-1024px)
+  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+    return true;
+  }
+  // Default for desktop (could be true or false based on your needs)
+  return false; 
+});
 
   useEffect(() => {
     params.then((res) => {
